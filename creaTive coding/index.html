@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Creative Coding Portfolio</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#0f0f0f;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:20px 8%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      
+    }
+
+    nav h1{
+      font-size:1.5rem;
+      color:#ffffff;
+      letter-spacing:1px;
+    }
+
+    nav ul{
+      display:flex;
+      gap:30px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ff8bd1;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:0 10%;
+      background:linear-gradient(135deg,#141414,#1f1f1f,#101010);
+    }
+
+    .hero-content h2{
+      font-size:4rem;
+      margin-bottom:20px;
+      line-height:1.1;
+    }
+
+    .hero-content span{
+      color:#ff8bd1;
+    }
+
+    .hero-content p{
+      font-size:1.1rem;
+      color:#cfcfcf;
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+    }
+
+    .scroll-btn{
+      display:inline-block;
+      margin-top:40px;
+      padding:14px 28px;
+      border-radius:50px;
+      background:#ff8bd1;
+      color:black;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .scroll-btn:hover{
+      transform:translateY(-3px);
+    }
+
+    /* PROJECT SECTION */
+
+    .projects{
+      width:100%;
+      padding:100px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#bbbbbb;
+    }
+
+    .project-card{
+      background:#1b1b1b;
+      border-radius:25px;
+      padding:40px;
+      margin-bottom:80px;
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .project-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 0 30px rgba(255,139,209,0.15);
+    }
+
+    .project-card h3{
+      font-size:2rem;
+      margin-bottom:15px;
+      color:#ff8bd1;
+    }
+
+    .project-card p{
+      color:#d5d5d5;
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    iframe{
+      width:100%;
+      height:600px;
+      border:none;
+      border-radius:18px;
+      background:black;
+    }
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      padding:40px 20px;
+      color:#aaaaaa;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero-content h2{
+        font-size:2.5rem;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+
+      iframe{
+        height:400px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <h1>Creative Coding</h1>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h2>
+        My <span>Creative Coding</span><br>
+        Portfolio
+      </h2>
+
+      <p>
+        A collection of interactive p5.js experiments exploring animation,
+        interaction, storytelling, and playful visual design.
+      </p>
+
+      <a href="#projects" class="scroll-btn">
+        Explore Projects
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section class="projects" id="projects">
+
+    <div class="section-title">
+      <h2>Featured Projects</h2>
+      <p>Interactive experiences built with p5.js</p>
+    </div>
+
+    <!-- PROJECT 1 -->
+
+    <div class="project-card">
+
+      <h3>1. Panda Toy Character</h3>
+
+      <p>
+
+This project recreates a panda toy using basic shapes, colors, and symmetry in p5.js to explore digital illustration and composition.
+      </p>
+
+      <!-- REPLACE THE LINK BELOW -->
+
+      <iframe src="https://editor.p5js.org/sheetalbora7351/full/LM_2IAXqb"></iframe>
+    </div>
+
+    <!-- PROJECT 2 -->
+
+    <div class="project-card">
+
+      <h3>Interactive Face Generator</h3>
+
+      <p>
+        An interactive face sketch where eye movement, zoom effects, and color changes respond to mouse interaction and animation.
+      </p>
+
+      <!-- REPLACE THE LINK BELOW -->
+
+      <iframe src="https://editor.p5js.org/sheetalbora7351/full/SkWwdBpB9"></iframe>
+
+    </div>
+
+    <!-- PROJECT 3 -->
+
+    <div class="project-card">
+
+      <h3>Mouse Interaction Experiment</h3>
+
+      <p>
+       A creative coding experiment where shapes and motion respond dynamically to left and right mouse movement using p5.js.
+      </p>
+
+      <!-- REPLACE THE LINK BELOW -->
+
+      <iframe src="https://editor.p5js.org/sheetalbora7351/full/JbV67K1TM"></iframe>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Creative Coding Portfolio • Designed with HTML, CSS & p5.js
+  </footer>
+
+</body>
+</html>
