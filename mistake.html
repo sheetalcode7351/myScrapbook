@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mistakes of the week</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#000;
+color:#fff;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 20px;
+}
+
+/* back button */
+
+.back-link{
+position:fixed;
+top:25px;
+left:25px;
+padding:8px 20px;
+border-radius:30px;
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+color:#fff;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+transition:.3s;
+z-index:999;
+}
+
+.back-link:hover{
+background:#ffc400;
+color:#000;
+border:1px solid #ffc400;
+box-shadow:
+0 0 15px rgba(255,196,0,.6),
+0 0 30px rgba(255,196,0,.3);
+}
+
+.container{
+max-width:1100px;
+width:100%;
+}
+
+/* title */
+
+.title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.title h1{
+font-size:50px;
+font-weight:900;
+}
+
+.title p{
+color:#ffc400;
+margin-top:6px;
+font-weight:700;
+}
+
+/* grid */
+
+.content{
+display:grid;
+grid-template-columns:1fr 260px;
+gap:50px;
+align-items:center;
+margin-bottom:50px;
+}
+
+/* paragraph */
+
+.text{
+font-size:18px;
+line-height:1.6;
+color:#eee;
+}
+
+.highlight{
+color:#ffc400;
+font-weight:700;
+}
+
+/* images */
+
+.image{
+width:260px;
+height:200px;
+object-fit:cover;
+border-radius:6px;
+}
+
+/* bottom */
+
+.bottom{
+display:grid;
+grid-template-columns:260px 1fr;
+gap:50px;
+align-items:center;
+}
+
+.learning{
+font-size:18px;
+line-height:1.6;
+}
+
+.learning span{
+color:#ffc400;
+font-weight:700;
+}
+
+/* sparkle */
+
+.sparkle{
+position:fixed;
+width:6px;
+height:6px;
+background:#ffc400;
+border-radius:50%;
+pointer-events:none;
+box-shadow:
+0 0 8px rgba(255,196,0,.9),
+0 0 18px rgba(255,196,0,.5);
+animation:sparkle .8s linear forwards;
+z-index:9999;
+}
+
+@keyframes sparkle{
+0%{
+opacity:1;
+transform:scale(1);
+}
+100%{
+opacity:0;
+transform:scale(.2) translateY(-25px);
+}
+}
+
+/* mobile */
+
+@media(max-width:800px){
+
+.content{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.bottom{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.image{
+margin:auto;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="index.html#journal" class="back-link">← Back</a>
+
+<div class="container">
+
+<div class="title">
+<h1>Mistakes of the week</h1>
+<p>09-15 feb</p>
+</div>
+
+
+<div class="content">
+
+<div class="text">
+This week I realized that I finished most of my work right at the
+<span class="highlight">deadline instead of starting earlier.</span>
+Because of this, I rushed many parts of my work and didn’t give myself enough time to think clearly.
+
+I also listened to <span class="highlight">others' opinions</span> too much and started
+<span class="highlight">doubting my own ideas.</span>
+
+There were many distractions around me, and I allowed them to affect my focus. Even when I felt stressed, I sometimes chose
+<span class="highlight">procrastination instead of taking action.</span>
+</div>
+
+<img src="image/WhatsApp Image 2026-03-09 at 8.52.04 AM.jpeg" class="image">
+
+</div>
+
+
+<div class="bottom">
+
+<img src="image/flower1.jpeg" class="image">
+
+<div class="learning">
+<span>Learning:</span>
+I learned that trusting my own ideas, planning my work earlier, and focusing on small steps can make things easier. Managing distractions and taking action on time can reduce stress and help me grow both as a student and as a person.
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+document.addEventListener("mousemove",function(e){
+
+const sparkle=document.createElement("div");
+sparkle.classList.add("sparkle");
+
+sparkle.style.left=e.clientX+"px";
+sparkle.style.top=e.clientY+"px";
+
+document.body.appendChild(sparkle);
+
+setTimeout(()=>{
+sparkle.remove();
+},800);
+
+});
+
+</script>
+
+</body>
+</html>

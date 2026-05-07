@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspiration Board</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    .back-link{
+      position:fixed;
+      top:20px;
+      left:20px;
+      padding:8px 18px;
+      border-radius:30px;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:600;
+      color:#fff;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.2);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      transition:.3s;
+      z-index:9999;
+    }
+
+    .back-link:hover{
+      background:#ffc400;
+      color:#000;
+      border:1px solid #ffc400;
+      box-shadow:0 0 15px rgba(255,196,0,.6), 0 0 30px rgba(255,196,0,.3);
+    }
+
+    .hero-slide{
+      height:100vh;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      background:#000;
+      overflow:visible;
+    }
+
+    .title{
+      text-align:center;
+      padding-top:80px;
+      position:relative;
+      z-index:3;
+    }
+
+    .title h1{
+      font-size:72px;
+      font-weight:900;
+      line-height:1;
+      margin-bottom:6px;
+    }
+
+    .title p{
+      font-size:24px;
+      font-weight:700;
+      color:#ffc400;
+      text-transform:lowercase;
+    }
+
+    .board-image{
+      position:absolute;
+      left:50%;
+      top:150px;
+      transform:translateX(-50%);
+      width:100%;
+      display:flex;
+      justify-content:center;
+      z-index:2;
+    }
+
+    .board-image img{
+      width:95vw;
+      max-width:1600px;
+      height:auto;
+      display:block;
+      object-fit:contain;
+    }
+
+    .text-section{
+      position:relative;
+      z-index:1;
+      background:#000;
+      padding:140px 20px 80px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .board-text{
+      max-width:1000px;
+      text-align:center;
+      font-size:22px;
+      line-height:1.7;
+      color:#eaeaea;
+    }
+
+    .board-text p{
+      margin-bottom:18px;
+    }
+
+    .highlight{
+      color:#ffc400;
+      font-weight:700;
+    }
+
+    .sparkle{
+      position:fixed;
+      width:6px;
+      height:6px;
+      background:#ffc400;
+      border-radius:50%;
+      pointer-events:none;
+      box-shadow:
+        0 0 8px rgba(255,196,0,.9),
+        0 0 18px rgba(255,196,0,.5);
+      animation:sparkle 0.8s linear forwards;
+      z-index:99999;
+    }
+
+    @keyframes sparkle{
+      0%{
+        opacity:1;
+        transform:scale(1);
+      }
+      100%{
+        opacity:0;
+        transform:scale(.2) translateY(-25px);
+      }
+    }
+
+    @media(max-width:900px){
+      .title{
+        padding-top:80px;
+      }
+
+      .title h1{
+        font-size:42px;
+      }
+
+      .title p{
+        font-size:18px;
+      }
+
+      .board-image{
+        top:180px;
+      }
+
+      .board-image img{
+        width:98vw;
+      }
+
+      .text-section{
+        padding:180px 16px 60px;
+      }
+
+      .board-text{
+        font-size:17px;
+        line-height:1.6;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html#journal" class="back-link">← Back</a>
+
+  <section class="hero-slide">
+    <div class="title">
+      <h1>Inspiration board</h1>
+      <p>09-15 feb</p>
+    </div>
+
+    <div class="board-image">
+      <img src="image/insporeal.png" alt="Inspiration Board">
+    </div>
+  </section>
+
+  <section class="text-section">
+    <div class="board-text">
+      <p>
+        This week, I explored different design references and visual styles. My inspiration board
+        <span class="highlight">includes mobile app UI designs, creative typography, poster layouts, packaging designs, and illustration styles.</span>
+      </p>
+
+      <p>
+        These visuals
+        <span class="highlight">helped me understand color combinations, layout balance, visual hierarchy, and modern design trends.</span>
+        By observing these references, I learned how designers combine images, text, and colors to create engaging and meaningful visuals.
+      </p>
+
+      <p>
+        This board helped me collect ideas, explore new styles, and improve my creative thinking for my future design projects. ✨
+      </p>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("mousemove", function(e){
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.style.left = e.clientX + "px";
+      sparkle.style.top = e.clientY + "px";
+      document.body.appendChild(sparkle);
+
+      setTimeout(() => {
+        sparkle.remove();
+      }, 800);
+    });
+  </script>
+
+</body>
+</html>

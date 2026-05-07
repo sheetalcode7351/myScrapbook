@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Week</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+      
+  
+
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:60px 20px;
+      background:#000;
+    }
+
+    .exam-card{
+      width:100%;
+      max-width:1100px;
+      position:relative;
+      padding:40px 20px 20px;
+    }
+
+    .back-link{
+      position:fixed;
+      top:25px;
+      left:25px;
+      padding:8px 20px;
+      border-radius:30px;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:600;
+      color:#fff;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.2);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      transition:.3s;
+      z-index:999;
+    }
+
+    .back-link:hover{
+      background:#ffc400;
+      color:#000;
+      border:1px solid #ffc400;
+      box-shadow:
+        0 0 15px rgba(255,196,0,.6),
+        0 0 30px rgba(255,196,0,.3);
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:35px;
+    }
+
+    .title h1{
+      font-size:64px;
+      font-weight:900;
+      color:#fff;
+      line-height:1;
+    }
+
+    .title p{
+      margin-top:6px;
+      font-size:18px;
+      font-weight:700;
+      color:#ffc400;
+    }
+
+    .middle{
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      gap:40px;
+    }
+
+    .side-notes{
+      width:200px;
+      display:flex;
+      flex-direction:column;
+      gap:26px;
+      font-size:17px;
+      font-weight:400;
+      line-height:1.25;
+      color:#fff;
+      padding-top:22px;
+    }
+
+    .side-notes.left{
+      align-items:flex-end;
+    }
+
+    .side-notes.right{
+      align-items:flex-start;
+    }
+
+    .side-notes.left span:nth-child(odd){
+      text-align:right;
+      margin-right:0;
+    }
+
+    .side-notes.left span:nth-child(even){
+      text-align:left;
+      margin-right:26px;
+    }
+
+    .side-notes.right span:nth-child(odd){
+      text-align:left;
+      margin-left:0;
+    }
+
+    .side-notes.right span:nth-child(even){
+      text-align:right;
+      margin-left:26px;
+    }
+
+    .center-panels{
+      display:flex;
+      align-items:flex-start;
+      gap:26px;
+    }
+
+    .panel{
+      width:260px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+
+    .panel img{
+      width:100%;
+      height:230px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .panel h2{
+      margin-top:10px;
+      font-size:34px;
+      font-weight:900;
+      color:#fff;
+    }
+
+    .divider{
+      width:2px;
+      height:260px;
+      background:#ffc400;
+      margin-top:0;
+    }
+
+    .bottom-text{
+      max-width:860px;
+      margin:36px auto 0;
+      text-align:center;
+      font-size:18px;
+      line-height:1.5;
+      font-weight:400;
+      color:#f2f2f2;
+    }
+
+    .highlight{
+      color:#ffc400;
+      font-weight:700;
+    }
+
+    .sparkle{
+      position:fixed;
+      width:6px;
+      height:6px;
+      background:#ffc400;
+      border-radius:50%;
+      pointer-events:none;
+      box-shadow:
+        0 0 8px rgba(255,196,0,.9),
+        0 0 18px rgba(255,196,0,.5);
+      animation:sparkle 0.8s linear forwards;
+      z-index:9999;
+    }
+
+    @keyframes sparkle{
+      0%{
+        opacity:1;
+        transform:scale(1);
+      }
+      100%{
+        opacity:0;
+        transform:scale(.2) translateY(-25px);
+      }
+    }
+
+    @media(max-width:1000px){
+      .title h1{
+        font-size:52px;
+      }
+
+      .middle{
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .side-notes{
+        width:100%;
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content:center;
+        align-items:center;
+        gap:14px 18px;
+        padding-top:0;
+      }
+
+      .side-notes.left span:nth-child(even),
+      .side-notes.right span:nth-child(even){
+        margin:0;
+      }
+
+      .center-panels{
+        margin-top:10px;
+      }
+    }
+
+    @media(max-width:700px){
+      .exam-card{
+        padding:70px 10px 20px;
+      }
+
+      .title h1{
+        font-size:40px;
+      }
+
+      .title p{
+        font-size:16px;
+      }
+
+      .center-panels{
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .divider{
+        width:220px;
+        height:2px;
+      }
+
+      .panel{
+        width:100%;
+        max-width:280px;
+      }
+
+      .panel img{
+        height:220px;
+      }
+
+      .panel h2{
+        font-size:28px;
+      }
+
+      .bottom-text{
+        font-size:15px;
+      }
+
+      .side-notes{
+        font-size:15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html#journal" class="back-link">← Back</a>
+
+  <div class="page">
+    <div class="exam-card">
+
+      <div class="title">
+        <h1>Exam week</h1>
+        <p>23-28 feb</p>
+      </div>
+
+      <div class="middle">
+
+        <div class="side-notes left">
+          <span>What the hell<br>is going on</span>
+          <span>Wants to murder</span>
+          <span>just surviving</span>
+          <span>life feel heavier</span>
+          <span>stress & uneasy</span>
+        </div>
+
+        <div class="center-panels">
+          <div class="panel">
+            <img src="image/fd8fdf1b5d97f0a9dfdae67894ee42fc.jpg" alt="During">
+            <h2>During</h2>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="panel">
+            <img src="image/WhatsApp Image 2026-03-09 at 4.56.27 PM.jpeg" alt="After">
+            <h2>After</h2>
+          </div>
+        </div>
+
+        <div class="side-notes right">
+          <span>feeling free</span>
+          <span>Happie happie</span>
+          <span>will go home</span>
+          <span>life feels easier</span>
+          <span>no more naps</span>
+        </div>
+
+      </div>
+
+      <div class="bottom-text">
+        This exam week was quite stressful for me because our syllabus was not fully completed in class.
+        Because of this, I felt worried and a little nervous before the exam. However, when I finally saw the
+        question paper, I felt relieved because the questions were easier than I expected. After finishing the
+        exam, my stress disappeared and I felt much more relaxed.
+        <span class="highlight">This experience taught me that sometimes things seem scary at first, but they turn out better than we imagine.</span>
+        😂🙂
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("mousemove", function(e){
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.style.left = e.clientX + "px";
+      sparkle.style.top = e.clientY + "px";
+      document.body.appendChild(sparkle);
+
+      setTimeout(() => {
+        sparkle.remove();
+      }, 800);
+    });
+  </script>
+
+</body>
+</html>

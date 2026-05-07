@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letter to my younger one</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:60px 30px;
+    }
+
+    .letter-card{
+      width:100%;
+      max-width:1180px;
+      padding:40px 20px 20px;
+      position:relative;
+    }
+
+    .back-link{
+      position:fixed;
+      top:25px;
+      left:25px;
+      padding:8px 20px;
+      border-radius:30px;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:600;
+      color:#fff;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.2);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      transition:.3s;
+      z-index:999;
+    }
+
+    .back-link:hover{
+      background:#ffc400;
+      color:#000;
+      border:1px solid #ffc400;
+      box-shadow:
+        0 0 15px rgba(255,196,0,.6),
+        0 0 30px rgba(255,196,0,.3);
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:38px;
+    }
+
+    .title h1{
+      font-size:64px;
+      line-height:1.05;
+      font-weight:900;
+      color:#fff;
+      margin-bottom:6px;
+    }
+
+    .title p{
+      font-size:18px;
+      font-weight:700;
+      color:#ffc400;
+    }
+
+    .content{
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      gap:70px;
+      margin-top:10px;
+    }
+
+    .left-side{
+      width:300px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .polaroid{
+      width:250px;
+      background:#fff;
+      padding:14px 14px 18px;
+      box-shadow:0 10px 28px rgba(0,0,0,.45);
+    }
+
+    .polaroid-image-wrap{
+      width:100%;
+      height:255px;
+      overflow:hidden;
+      position:relative;
+      background:#ddd;
+    }
+
+    .polaroid-image-wrap img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      position:absolute;
+      top:0;
+      left:0;
+      opacity:0;
+      transition:opacity .8s ease;
+    }
+
+    .polaroid-image-wrap img.active{
+      opacity:1;
+    }
+
+    .polaroid p{
+      text-align:center;
+      color:#555;
+      font-size:16px;
+      font-weight:500;
+      margin-top:12px;
+    }
+
+    .small-note{
+      margin-top:18px;
+      text-align:center;
+      font-size:16px;
+      line-height:1.2;
+      font-weight:800;
+      color:#ffc400;
+      max-width:290px;
+    }
+
+    .right-side{
+      width:540px;
+      padding-top:4px;
+    }
+
+    .right-side h2{
+      font-size:30px;
+      font-weight:800;
+      margin-bottom:16px;
+      line-height:1.2;
+      color:#fff;
+    }
+
+    .right-side p{
+      font-size:17px;
+      line-height:1.42;
+      font-weight:400;
+      margin-bottom:16px;
+      color:#f1f1f1;
+    }
+
+    .highlight{
+      color:#ffc400;
+      font-weight:800;
+    }
+
+    .signature{
+      margin-top:8px;
+      font-size:17px;
+      font-weight:500;
+      color:#fff;
+    }
+
+    .sparkle{
+      position:fixed;
+      width:6px;
+      height:6px;
+      background:#ffc400;
+      border-radius:50%;
+      pointer-events:none;
+      box-shadow:
+        0 0 8px rgba(255,196,0,.9),
+        0 0 18px rgba(255,196,0,.5);
+      animation:sparkle .8s linear forwards;
+      z-index:9999;
+    }
+
+    @keyframes sparkle{
+      0%{
+        opacity:1;
+        transform:scale(1);
+      }
+      100%{
+        opacity:0;
+        transform:scale(.2) translateY(-25px);
+      }
+    }
+
+    @media(max-width:950px){
+      .content{
+        flex-direction:column;
+        align-items:center;
+        gap:38px;
+      }
+
+      .left-side,
+      .right-side{
+        width:100%;
+        max-width:620px;
+      }
+
+      .right-side{
+        text-align:left;
+      }
+
+      .title h1{
+        font-size:48px;
+      }
+    }
+
+    @media(max-width:600px){
+      .page{
+        padding:80px 16px 30px;
+      }
+
+      .title h1{
+        font-size:38px;
+      }
+
+      .title p{
+        font-size:16px;
+      }
+
+      .right-side h2{
+        font-size:24px;
+      }
+
+      .right-side p,
+      .signature,
+      .small-note{
+        font-size:15px;
+      }
+
+      .polaroid{
+        width:220px;
+      }
+
+      .polaroid-image-wrap{
+        height:225px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html#journal" class="back-link">← Back</a>
+
+  <div class="page">
+    <div class="letter-card">
+
+      <div class="title">
+        <h1>Letter to my younger one</h1>
+        <p>16-22 feb</p>
+      </div>
+
+      <div class="content">
+
+        <div class="left-side">
+          <div class="polaroid">
+            <div class="polaroid-image-wrap">
+              <img src="image/WhatsApp Image 2026-03-09 at 9.26.09 PM.jpeg" class="active" alt="young photo 1">
+              <img src="image/younger.jpeg" alt="young photo 2">
+              <img src="image/childern.jpeg" alt="young photo 3">
+              <img src="image/goat.jpeg" alt="young photo 4">
+            </div>
+            <p>I love u so much</p>
+          </div>
+
+          <div class="small-note">
+            I learned to accept yourself,<br>
+            appreciate yourself, and treat<br>
+            yourself with kindness while<br>
+            continuing to grow.
+          </div>
+        </div>
+
+        <div class="right-side">
+          <h2>Dear Younger Me,</h2>
+
+          <p>
+            I know sometimes you feel lonely because making friends has never been easy for you.
+            But that doesn’t mean there is something wrong with you. You are an introvert, and that
+            simply means you feel comfortable in your own space and with your own thoughts.
+          </p>
+
+          <p>
+            Your quiet nature helps you observe, understand, and learn things quickly.
+            You are a fast learner and a thoughtful person. Sometimes your emotions may feel heavy,
+            but they also make you more sensitive and understanding.
+          </p>
+
+          <p>
+            <span class="highlight">So be kind to yourself.</span>
+            Even if the world feels a little lonely at times, remember that you are growing,
+            learning, and becoming stronger every day.
+          </p>
+
+          <div class="signature">— Your Future Self</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll(".polaroid-image-wrap img");
+    let current = 0;
+
+    setInterval(() => {
+      images[current].classList.remove("active");
+      current = (current + 1) % images.length;
+      images[current].classList.add("active");
+    }, 2000);
+
+    document.addEventListener("mousemove", function(e){
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.style.left = e.clientX + "px";
+      sparkle.style.top = e.clientY + "px";
+      document.body.appendChild(sparkle);
+
+      setTimeout(() => {
+        sparkle.remove();
+      }, 800);
+    });
+  </script>
+
+</body>
+</html>

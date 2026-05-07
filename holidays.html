@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holi-days</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    .page{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:60px 20px;
+      background:#000;
+    }
+
+    .holiday-card{
+      width:100%;
+      max-width:1100px;
+      position:relative;
+      padding:40px 20px 30px;
+      text-align:center;
+    }
+
+    .back-link{
+      position:fixed;
+      top:25px;
+      left:25px;
+      padding:8px 20px;
+      border-radius:30px;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:600;
+      color:#fff;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.2);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      transition:.3s;
+      z-index:999;
+    }
+
+    .back-link:hover{
+      background:#ffc400;
+      color:#000;
+      border:1px solid #ffc400;
+      box-shadow:
+        0 0 15px rgba(255,196,0,.6),
+        0 0 30px rgba(255,196,0,.3);
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:28px;
+    }
+
+    .title h1{
+      font-size:64px;
+      font-weight:900;
+      line-height:1;
+      color:#fff;
+    }
+
+    .title p{
+      margin-top:6px;
+      font-size:18px;
+      font-weight:700;
+      color:#ffc400;
+    }
+
+    .collage-wrap{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      margin-top:10px;
+      margin-bottom:28px;
+    }
+
+    .collage{
+      position:relative;
+      width:430px;
+      height:320px;
+    }
+
+    .middle-text{
+      position:absolute;
+      top:118px;
+      left:155px;
+      width:150px;
+      text-align:center;
+      color:#ffc400;
+      font-size:18px;
+      font-weight:900;
+      line-height:1.15;
+      z-index:50;
+      pointer-events:none;
+      text-shadow:0 0 10px rgba(0,0,0,0.45);
+    }
+
+    .click-note{
+      display:block;
+      margin-top:8px;
+      font-size:14px;
+      font-weight:600;
+      color:#ffffff;
+      letter-spacing:.4px;
+      opacity:1;
+      transition:opacity .5s ease;
+    }
+
+    .click-note.hide{
+      opacity:0;
+    }
+
+    .photo{
+      position:fixed;
+      object-fit:cover;
+      box-shadow:0 10px 25px rgba(0,0,0,0.35);
+      border:2px solid rgba(255,255,255,0.08);
+      z-index:20;
+      transition:
+        left 1.3s ease,
+        top 1.3s ease,
+        width 1.3s ease,
+        height 1.3s ease,
+        transform 1.3s ease;
+    }
+
+    .bottom-text{
+      max-width:900px;
+      margin:0 auto;
+      text-align:center;
+      font-size:18px;
+      line-height:1.45;
+      font-weight:400;
+      color:#f2f2f2;
+    }
+
+    .highlight,
+    .highlight2{
+      color:#ffc400;
+      font-weight:700;
+    }
+
+    .sparkle{
+      position:fixed;
+      width:6px;
+      height:6px;
+      background:#ffc400;
+      border-radius:50%;
+      pointer-events:none;
+      box-shadow:
+        0 0 8px rgba(255,196,0,.9),
+        0 0 18px rgba(255,196,0,.5);
+      animation:sparkle .8s linear forwards;
+      z-index:9999;
+    }
+
+    @keyframes sparkle{
+      0%{
+        opacity:1;
+        transform:scale(1);
+      }
+      100%{
+        opacity:0;
+        transform:scale(.2) translateY(-25px);
+      }
+    }
+
+    @media(max-width:700px){
+      .holiday-card{
+        padding:70px 10px 20px;
+      }
+
+      .title h1{
+        font-size:42px;
+      }
+
+      .title p{
+        font-size:16px;
+      }
+
+      .collage{
+        transform:scale(.8);
+        transform-origin:center top;
+        height:270px;
+      }
+
+      .bottom-text{
+        font-size:15px;
+      }
+
+      .middle-text{
+        left:158px;
+        top:118px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html#journal" class="back-link">← Back</a>
+
+  <div class="page">
+    <div class="holiday-card">
+
+      <div class="title">
+        <h1>Holi-days</h1>
+        <p>01-07march</p>
+      </div>
+
+      <div class="collage-wrap">
+        <div class="collage">
+          <div class="middle-text">
+            What i did<br>during<br>holidays?
+            <span class="click-note" id="clickNote">click to know</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-text">
+        “During holidays i realised my body sometimes only wants one activity —
+        <span class="highlight">sleeping.</span>
+        These holidays basically turned me into a professional sleeper. Even though it was Holi time,
+        I realized that sleep was more important for me.
+        <span class="highlight2">I learned nothing!</span>”
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("mousemove", function(e){
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.style.left = e.clientX + "px";
+      sparkle.style.top = e.clientY + "px";
+      document.body.appendChild(sparkle);
+
+      setTimeout(() => {
+        sparkle.remove();
+      }, 800);
+    });
+
+    const imageSources = [
+      {
+        src: "image/f17c971baa4f0ae82afd96d18def7eb2.jpg",
+        final: { width:120, height:130, top:45, left:35 }
+      },
+      {
+        src: "image/5520dacb18b4ac48f5d4880ce1d1f42d.jpg",
+        final: { width:78, height:98, top:18, left:170 }
+      },
+      {
+        src: "image/726e004f3d7918c455d400a1da419b82.jpg",
+        final: { width:110, height:118, top:35, left:285 }
+      },
+      {
+        src: "image/2c00cb80a1c14156a59e19b560e45da0.jpg",
+        final: { width:108, height:132, top:154, left:75 }
+      },
+      {
+        src: "image/5a3cb6938649a8c5d2e36822440a8d30.jpg",
+        final: { width:82, height:92, top:192, left:200 }
+      },
+      {
+        src: "image/1abf247dfe4aacb42f0407cd35c7f632.jpg",
+        final: { width:110, height:88, top:176, left:300 }
+      }
+    ];
+
+    let alreadyCreated = false;
+
+    document.addEventListener("click", function(){
+      if(alreadyCreated) return;
+      alreadyCreated = true;
+
+      const clickNote = document.getElementById("clickNote");
+      clickNote.classList.add("hide");
+
+      const collage = document.querySelector(".collage");
+      const collageRect = collage.getBoundingClientRect();
+
+      imageSources.forEach((item, index) => {
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.classList.add("photo");
+
+        const startWidth = 80 + Math.floor(Math.random() * 60);
+        const startHeight = 80 + Math.floor(Math.random() * 60);
+
+        const maxLeft = window.innerWidth - startWidth - 20;
+        const maxTop = window.innerHeight - startHeight - 20;
+
+        const randomLeft = Math.floor(Math.random() * maxLeft);
+        const randomTop = Math.floor(Math.random() * maxTop);
+
+        img.style.width = startWidth + "px";
+        img.style.height = startHeight + "px";
+        img.style.left = randomLeft + "px";
+        img.style.top = randomTop + "px";
+        img.style.transform = `rotate(${Math.floor(Math.random() * 40 - 20)}deg)`;
+
+        document.body.appendChild(img);
+
+        setTimeout(() => {
+          img.style.width = item.final.width + "px";
+          img.style.height = item.final.height + "px";
+          img.style.left = (collageRect.left + item.final.left) + "px";
+          img.style.top = (collageRect.top + item.final.top) + "px";
+          img.style.transform = "rotate(0deg)";
+        }, 100 + index * 120);
+      });
+    });
+  </script>
+
+</body>
+</html>
